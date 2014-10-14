@@ -59,7 +59,7 @@ def __parse_rows(matrix_str):
         for row in matrix:
             if len(row) != row_len:
                 # Ragged matrix.
-    #           matrix = None
+                matrix = None
                 # Done here...
                 break
     return matrix

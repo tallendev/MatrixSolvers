@@ -2,10 +2,20 @@
 
 __author__ = 'tyler'
 
+# Author: Tyler Allen
+# Date Created: 10/13/2014
+# Last Modified: 10/14/2014
+# A program for coordinating the use of the 5 solver methods being implemented for the Math 362 honors project.
+# This program accepts a solution method (from the ones provided), and an optional file. If a file is not provided,
+# the user will be prompted to input a matrix by hand.
+#
+# TODO: Finish this doc
+
 import sys
 import os
+import copy
 from src.matrix_parser import parse_matrix
-from src.gaussian import gaussian
+from src.gaussian import Gaussian
 
 # Exit due to invalid number of arguments.
 INVALID_ARG_COUNT = 1
@@ -29,7 +39,7 @@ NUM_PROMPT_ARGS = 2
 NUM_FILE_ARGS = 3
 
 # available solve method dictionary
-METHODS = {'gaussian' : gaussian}
+METHODS = {'gaussian' : Gaussian}
 
 def main():
     num_args = len(sys.argv)
@@ -64,8 +74,12 @@ def main():
         if len(matrix) == 0:
             print("The matrix was empty.")
         else:
-            solution = METHODS[sys.argv[SOLVE_METHOD]]()
-    print(solution)
+            solution = METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix))
+    if solution.has_unique_solution():
+        print(solution)
+    else:
+        print("Matrix has no unique solution.")
+
 
 def usage(exit_status, message):
     #TODO: finish usage

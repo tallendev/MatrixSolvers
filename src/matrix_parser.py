@@ -1,5 +1,12 @@
 __author__ = 'tyler'
 
+# Author: Tyler Allen
+# Created: 10/13/2014
+# Last Modified: 10/14/2014
+# A parser created to pull floating point numbers/expressions out of a matrix. The error checking for this parser is
+# limited - it is likely mistakes in the input will not be caught and throw errors for now.
+
+
 import re
 import math
 
@@ -27,6 +34,7 @@ def parse_matrix(input):
         # pass in slice removing first/last brace
         matrix = __parse_rows(matrix_str[1:-1])
     return matrix
+
 
 def __parse_rows(matrix_str):
     matrix = [[]]

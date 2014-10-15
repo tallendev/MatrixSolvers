@@ -1,7 +1,7 @@
 __author__ = 'tyler'
 
 # Author: Tyler Allen
-# Created: 10/13/2014
+# Created: 10/14/2014
 # Last Modified: 10/14/2014
 # This is an implementation of the Gaussian Elimination with Partial Pivoting algorithm. Creating one of these
 # objects with a provided matrix will reduce the matrix to RREF form and create the solution vector.

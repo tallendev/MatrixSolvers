@@ -1,8 +1,8 @@
 __author__ = 'tyler'
 
 # Author: Tyler Allen
-# Created: 10/13/2014
-# Last Modified: 10/14/2014
+# Created: 10/14/2014
+# Last Modified: 10/15/2014
 # This is an implementation of Jacobi's Method.
 
 

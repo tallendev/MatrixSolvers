@@ -16,6 +16,8 @@ import os
 import copy
 from src.matrix_parser import parse_matrix
 from src.gaussian import Gaussian
+from src.gaussian_pivot import GaussianPivot
+from src.jacobi import Jacobi
 
 # Exit due to invalid number of arguments.
 INVALID_ARG_COUNT = 1
@@ -39,7 +41,9 @@ NUM_PROMPT_ARGS = 2
 NUM_FILE_ARGS = 3
 
 # available solve method dictionary
-METHODS = {'gaussian' : Gaussian}
+METHODS = {'gaussian' : Gaussian,
+           'gaussian_pivot' : GaussianPivot,
+           'jacobi' : Jacobi}
 
 def main():
     num_args = len(sys.argv)

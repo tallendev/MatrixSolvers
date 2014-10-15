@@ -41,9 +41,10 @@ NUM_PROMPT_ARGS = 2
 NUM_FILE_ARGS = 3
 
 # available solve method dictionary
-METHODS = {'gaussian' : Gaussian,
-           'gaussian_pivot' : GaussianPivot,
-           'jacobi' : Jacobi}
+DIRECT_METHODS = {'gaussian' : Gaussian,
+                  'gaussian_pivot' : GaussianPivot}
+
+ITERATIVE_METHODS = {'jacobi' : Jacobi}
 
 def main():
     num_args = len(sys.argv)
@@ -65,7 +66,7 @@ def main():
     else:
         usage(INVALID_ARG_COUNT, "Invalid number of arguments.")
 
-    if (sys.argv[SOLVE_METHOD] not in METHODS):
+    if not (sys.argv[SOLVE_METHOD] in DIRECT_METHODS or sys.argv[SOLVE_METHOD] in ITERATIVE_METHODS):
         usage(INVALID_METHOD, "Solve method provided on command line does not exist: " + sys.argv[SOLVE_METHOD])
 
     input = file.read()
@@ -78,7 +79,10 @@ def main():
         if len(matrix) == 0:
             print("The matrix was empty.")
         else:
-            solution = METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix))
+            if (sys.argv[SOLVE_METHOD] in DIRECT_METHODS):
+                solution = DIRECT_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix))
+            else:
+                solution = ITERATIVE_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix), 100000, .0003)
     if solution.has_unique_solution():
         print(solution)
     else:

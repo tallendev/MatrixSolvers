@@ -7,8 +7,7 @@ __author__ = 'tyler'
 # Last Modified: 12/05/2014
 # A program for coordinating the use of the 5 solver methods being implemented for the Math 362 honors project.
 # This program accepts a solution method (from the ones provided), and a file.
-#
-#
+# For more specific instructions, please see the usage message.
 
 import sys
 import os

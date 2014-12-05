@@ -18,6 +18,7 @@ from src.matrix_parser import parse_matrix
 from src.gaussian import Gaussian
 from src.gaussian_pivot import GaussianPivot
 from src.jacobi import Jacobi
+from src.gauss_seidel import GaussSeidel
 
 # Exit due to invalid number of arguments.
 INVALID_ARG_COUNT = 1
@@ -44,7 +45,8 @@ NUM_FILE_ARGS = 3
 DIRECT_METHODS = {'gaussian' : Gaussian,
                   'gaussian_pivot' : GaussianPivot}
 
-ITERATIVE_METHODS = {'jacobi' : Jacobi}
+ITERATIVE_METHODS = {'jacobi' : Jacobi,
+                     'gauss_seidel' : GaussSeidel}
 
 def main():
     num_args = len(sys.argv)

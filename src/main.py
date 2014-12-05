@@ -8,7 +8,7 @@ __author__ = 'tyler'
 # A program for coordinating the use of the 5 solver methods being implemented for the Math 362 honors project.
 # This program accepts a solution method (from the ones provided), and a file.
 #
-# TODO: Finish this doc
+#
 
 import sys
 import os
@@ -48,7 +48,7 @@ NUM_PROMPT_ARGS = 2
 NUM_FILE_ARGS = 3
 
 # Number of args for a solve method.
-SOLVE_ARGS = NUM_FILE_ARGS
+SOLVE_ARGS = 3
 # Number of args for iterative method.
 ITERATIVE_ARGS = 5
 # Number of args for SOR method.
@@ -63,9 +63,9 @@ ITERATIVE_METHODS = {'jacobi': Jacobi,
 
 RELAXATION_METHODS = {'sor': Sor}
 
+
 def main():
     num_args = len(sys.argv)
-    print(num_args)
     file = None
     # Prompt user for input
     if num_args == NUM_PROMPT_ARGS:
@@ -78,8 +78,6 @@ def main():
         elif not os.access(sys.argv[FILE_NAME], os.R_OK):
             usage(INVALID_FILE, "File could not be read: " + sys.argv[FILE_NAME])
         file = open(sys.argv[FILE_NAME], "r", encoding="utf-8")
-
-
     # Usage
     else:
         usage(INVALID_ARG_COUNT, "Invalid number of arguments.")
@@ -100,17 +98,19 @@ def main():
             print("The matrix was empty.")
         else:
             if sys.argv[SOLVE_METHOD] in DIRECT_METHODS:
-                if (len(sys.argv) != SOLVE_ARGS):
+                if len(sys.argv) != SOLVE_ARGS:
                     usage(INVALID_INPUT, "Invalid number of arguments for solve method.")
                 solution = DIRECT_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix))
             elif sys.argv[SOLVE_METHOD] in ITERATIVE_METHODS:
-                if (len(sys.argv) != ITERATIVE_ARGS):
+                if len(sys.argv) != ITERATIVE_ARGS:
                     usage(INVALID_INPUT, "Invalid number of arguments for solve method.")
-                solution = ITERATIVE_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix), float(sys.argv[ITERATIONS]), float(sys.argv[TOLERANCE]))
+                solution = ITERATIVE_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix), float(sys.argv[ITERATIONS]),
+                                                                     float(sys.argv[TOLERANCE]))
             elif sys.argv[SOLVE_METHOD] in RELAXATION_METHODS:
-                if (len(sys.argv) != SOR_ARGS):
+                if len(sys.argv) != SOR_ARGS:
                     usage(INVALID_INPUT, "Invalid number of arguments for solve method.")
-                solution = RELAXATION_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix), float(sys.argv[ITERATIONS]), float(sys.argv[TOLERANCE]), float(sys.argv[OMEGA]))
+                solution = RELAXATION_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix), float(sys.argv[ITERATIONS]),
+                                                                      float(sys.argv[TOLERANCE]), float(sys.argv[OMEGA]))
     if solution.has_unique_solution():
         print(solution)
     else:
@@ -118,7 +118,6 @@ def main():
 
 
 def usage(exit_status, message):
-    #TODO: finish usage
     print(message + "\nUsage: python " + sys.argv[PROGRAM_NAME] + " solve_method ["
           "file_input] [max_iterations] [tolerance] [sor_w]\n max_iterations, tolerance required for iterative methods."
           "sor_w value required for SOR methods. "

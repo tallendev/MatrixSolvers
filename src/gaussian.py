@@ -44,7 +44,6 @@ class Gaussian:
                 for column in range(rows + 1):
                     # row adjustment
                     matrix[j][column] = matrix[j][column] - coefficient * matrix[i][column]
-            print("Matrix Iter:\n" + str(matrix))
         if matrix[rows - 1][rows - 1] != 0:
             # create rows number of solution spots
             self.solution = [0 for x in range(rows)]

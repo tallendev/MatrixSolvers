@@ -26,8 +26,8 @@ class GaussianPivot:
             # Check for potential pivot rows
             max = matrix[0]
             # Find max of potential pivot rows
-            for p in range(i, rows - 1):
-                # Max of pivot row?
+            for p in range(i, rows):
+                # Max of pivot row
                 if abs(matrix[p][i]) > abs(max[i]):
                     pivot = p
                     max = matrix[p]
@@ -39,14 +39,13 @@ class GaussianPivot:
                 temp_row = matrix[pivot]
                 matrix[pivot] = matrix[i]
                 matrix[i] = temp_row
-            # Apply column operations...
+            # Apply row operations...
             for j in range(i + 1, rows):
                 coefficient = matrix[j][i] / matrix[i][i]
                 # Adjust each row w/ E_j - m_ji * E_i -> E_j
                 for column in range(rows + 1):
                     # row adjustment
                     matrix[j][column] = matrix[j][column] - coefficient * matrix[i][column]
-            print("Matrix Iter:\n" + str(matrix))
         if matrix[rows - 1][rows - 1] != 0:
             # create rows number of solution spots
             self.solution = [0 for x in range(rows)]

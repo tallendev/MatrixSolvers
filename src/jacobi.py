@@ -17,33 +17,33 @@ class Jacobi:
     # TODO: We need to check, for this function, that the input is correct.
     def __init__(self, matrix, iterations, tolerance):
         k = 0
-        num_rows = len(matrix)
+        num_rows = len(matrix[0])
 
-        old_solution = [0 for x in range(num_rows)]
-        solution = [0 for x in range(num_rows)]
-        print("old sol len = " + str(len(old_solution)))
+        x = [0 for i in range(num_rows - 1)]
         while k < iterations:
-            for i in range(num_rows):
-                solution[i] = 0
+            xo = [i for i in x]
+            for i in range(num_rows - 1):
+                pi = 0
                 for j in range(num_rows - 1):
                     if j != i:
-                        solution[i] += matrix[i][j] * old_solution[j]
-                solution[i] = (1 / matrix[i][i]) * (matrix[i][num_rows] - solution[i])
+                        pi += matrix[i][j] * matrix[i][num_rows - 1]
+                x[i] = (xo[i] - pi)/matrix[i][i]
 
-            print("Temp solution: " + str(solution))
-            print("Temp old solution: " + str(old_solution))
-            print(str(self.__vector_norm(solution)) + " - " + str(self.__vector_norm(old_solution)) + " < " + str(tolerance))
+            print("\nTemp solution: " + str(x))
+            print("Temp old solution: " + str(xo))
+
             temp_solution = []
-            for row in range(num_rows):
-                temp_solution.append(solution[row] - old_solution[row])
+            for row in range(num_rows - 1):
+                temp_solution.append(x[row] - xo[row])
+            print(str(self.__vector_norm(temp_solution)) + " < " + str(tolerance))
             if self.__vector_norm(temp_solution) < tolerance:
                 break
             k += 1
-            old_solution = solution
-            solution = [0 for x in range(num_rows)]
+            #solution = [0 for x in range(num_rows)]
 
+        print("Finished in " + str(k) + " iterations")
         self.matrix = matrix
-        self.solution = solution
+        self.solution = x
 
     def __vector_norm(self, vector):
         sum = 0

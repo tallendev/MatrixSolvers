@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2014/Arch Linux)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: MatrixSolvers.aux
+The style file: amsrn.bst
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Database file #1: MatrixSolvers.bib
+You've used 1 entry,
+            1497 wiz_defined-function locations,
+            408 strings with 2590 characters,
+and the built_in function-call counts, 707 in all, are:
+= -- 21
+> -- 50
+< -- 4
++ -- 9
+- -- 48
+* -- 52
+:= -- 116
+add.period$ -- 0
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 6
+cite$ -- 1
+duplicate$ -- 61
+empty$ -- 30
+format.name$ -- 2
+if$ -- 83
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 26
+newline$ -- 15
+num.names$ -- 2
+pop$ -- 58
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 14
+stack$ -- 0
+substring$ -- 13
+swap$ -- 38
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 8
+warning$ -- 0
+while$ -- 10
+width$ -- 0
+write$ -- 25

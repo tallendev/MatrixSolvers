@@ -1,0 +1,15 @@
+% \bib, bibdiv, biblist are defined by the amsrefs package.
+\begin{bibdiv}
+\begin{biblist}
+
+\bib{numerical}{book}{
+      author={Burden~R.L., Faires~J.D.},
+       title={Numerical analysis},
+     edition={9ed.},
+   publisher={Brooks Cole},
+        date={2010},
+        ISBN={0538733519},
+}
+
+\end{biblist}
+\end{bibdiv}

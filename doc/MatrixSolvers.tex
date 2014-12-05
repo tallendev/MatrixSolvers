@@ -17,12 +17,12 @@
 \newtheorem{theorem}{Theorem}
 \begin{document}
 
-\title{Five Algorithms for Finding Matrix Solutions\\An Honors Project}
+\title{Five Algorithms for Finding Matrix Equation Solutions\\An Honors Project}
 \author{Tyler Allen}
 \date{}
 
 \maketitle
-
+\newpage
 \section{Introduction}
 
 Systems of linear equations appear frequently in mathematics. Matrices have 
@@ -39,15 +39,17 @@ algorithms and their implementation.
 
 \section{General Implementation Information}
 These algorithms for solving matrix equations  were implemented in Python 3.4, due to some improvements 
-in Python's looping and printing methods over Python 2.7. It is likely that the
-program will not execute succesfully or efficiently in Python 2.7. The implementation
+in Python's looping and printing methods over Python 2.5. It is likely that the
+program will not execute succesfully or efficiently in Python 2.5. The implementation
 provides a single interface for all of the provided methods, and uses command line 
 arguments to accept the input. 
 
 \begin{figure}[H]
-\includegraphics{usage.png}
+\begin{center}
+\includegraphics[scale=.4]{usage.png}
 \caption{The usage message printed in the event of incorrect arguments or missing files.}
 \label{usage}
+\end{center}
 \end{figure}
 
 Figure \ref{usage} contains a message shown to the user if a user inputs an incorrect
@@ -57,14 +59,18 @@ input would provide an easier experience to the user than allowing the user to
 enter the matrix at program execution.
 
 \begin{figure}[H]
+\begin{center}
 \includegraphics{input1.png}
 \caption{An example input file.}
 \label{input1}
+\end{center}
 \end{figure}
 \begin{figure}[H]
+\begin{center}
 \includegraphics{input2.png}
-\caption{Another example input file..}
+\caption{Another example input file.}
 \label{input2}
+\end{center}
 \end{figure}
 
 Figures \ref{input1}, \ref{input2} show different formats for an input file. Some
@@ -100,16 +106,18 @@ obtained. Each iteration of this method attempts to find a row to become the
 pivot row for the curret pivot column. This is done by finding the first non-zero
 row. Once a pivot row and column are determined, the other values in that column
 are eliminated using elementary row operations. 
-This method can be accessed by using ``gaussian'' as the solution method
-within the program.
 
 \begin{figure}[H]
-\includegraphics{gaussian.png}
+\begin{center}
+\includegraphics[scale=.5]{gaussian.png}
 \caption{Gaussian Elimination}
 \label{gaussian}
+\end{center}
 \end{figure}
 
-Figure \ref{gaussian} displays a usage of Gaussian Elimination. 
+Figure \ref{gaussian} displays a usage of Gaussian Elimination. This method can be accessed by using ``gaussian'' as the solution method
+within the program.
+
 
 
 \subsection{Gaussian Elimination with Partial Pivoting}
@@ -121,15 +129,19 @@ rather than use the first available non-zero entry in the appropriate column
  This will produce a more accurate result with less roundoff error. 
 
 \begin{figure}[H]
-\includegraphics{pivot.png}
+\begin{center}
+\includegraphics[scale=.5]{pivot.png}
 \caption{Gaussian Elimination with Partial Pivoting}
 \label{pivot}
+\end{center}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics{badgaussian.png}
-\caption{Gaussian Elimination}
+\begin{center}
+\includegraphics[scale=.5]{badgaussian.png}
+\caption{Gaussian Elimination produces a less accurate result due to roundoff error.}
 \label{badgaussian}
+\end{center}
 \end{figure}
 
 Figure \ref{pivot} displays one usage of this method. The same matrix equation is solved
@@ -154,9 +166,11 @@ or the current solution's distance from the actual solution is within the tolera
 level, we use the current solution. Otherwise, the current solution is the new 
 candidate for the next iteration. 
 \begin{figure}[H]
-\includegraphics{jacobi.png}
+\begin{center}
+\includegraphics[scale=.5]{jacobi.png}
 \caption{Jacobi's Method}
 \label{jacobi}
+\end{center}
 \end{figure}
 
 Figure \ref{jacobi} displays an example usage of Jacobi's method. This method can be accessed by using ``jacobi''
@@ -172,9 +186,11 @@ to converge on the true solution faster.
 
  
 \begin{figure}[H]
-\includegraphics{gauss_seidel.png}
+\begin{center}
+\includegraphics[scale=.5]{gauss_seidel.png}
 \caption{The Gauss-Seidel Method}
 \label{gauss_seidel}
+\end{center}
 \end{figure}
 
 Figure \ref{gauss_seidel} shows the usage of the Gauss-Seidel method. This method can be accessed by using ``gauss\_seidel''
@@ -190,18 +206,22 @@ method. However, choosing an appropriate $\omega$ depends greatly on the matrix
 itself. 
 
 \begin{figure}[H]
-\includegraphics{sor.png}
+\begin{center}
+\includegraphics[scale=.5]{sor.png}
 \caption{The SOR Method}
 \label{sor}
+\end{center}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics{slow_seidel.png}
-\caption{The Gauss-Seidel Method}
+\begin{center}
+\includegraphics[scale=.5]{slow_seidel.png}
+\caption{The Gauss-Seidel Method performing slower than the SOR method.}
 \label{slow_seidel}
+\end{center}
 \end{figure}
 
-Figure \ref{sor} shows the usage of the SOR method. In comparison to \figure{slow\_seidel},
+Figure \ref{sor} shows the usage of the SOR method. In comparison to %\figure{slow\_seidel},
 it is apparent how a well chosen $\omega$ can have significant impact on the 
 speed of convergence. This method can be accessed by using ``sor''
 as the solution method within the program.
@@ -219,5 +239,8 @@ for some user-provided constants, such as $\omega$, adding consistency checks,
 and improving the matrix parsing algorithm.
 
 \newpage
+\bibliography{MatrixSolvers}
+\nocite{*}
+
 
 \end{document}

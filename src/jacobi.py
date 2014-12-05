@@ -5,17 +5,15 @@ from src.matrix_functions import vector_norm
 
 # Author: Tyler Allen
 # Created: 10/14/2014
-# Last Modified: 10/15/2014
+# Last Modified: 12/04/2014
 # This is an implementation of Jacobi's Method.
 
 
 class Jacobi:
 
-    # Initialization function that runs through gaussian elimination in order to produce the solutions for the provided
-    # matrix.
+    # Initialization function that uses Jacobi's Method to approximate a solution vector.
     # param - matrix - the matrix to simplify. Matrix WILL BE MUTATED, clone matrix beforehand if you want to preserve
     #                  it.
-    # TODO: We need to check, for this function, that the input is correct.
     def __init__(self, matrix, iterations, tolerance):
         k = 0
         num_rows = len(matrix[0])
@@ -28,13 +26,11 @@ class Jacobi:
                 for j in range(num_rows - 1):
                     if j != i:
                         pi += (matrix[i][j] * xo[j])
-                print ("x[i] = (" + str(matrix[i][num_rows - 1]) + " - " + str(pi) + ") / " + str(matrix[i][i]))
                 x[i] = (matrix[i][num_rows - 1] - pi)/matrix[i][i]
 
             temp_solution = []
             for row in range(num_rows - 1):
                 temp_solution.append(x[row] - xo[row])
-            print(str(vector_norm(temp_solution)) + " < " + str(tolerance))
             if vector_norm(temp_solution) < tolerance:
                 break
             k += 1
@@ -47,7 +43,6 @@ class Jacobi:
     def has_unique_solution(self):
         return True
 
-
-    # Formatted string containing the RREF form of the matrix and the solution vector.
+    # Formatted string containing the matrix and the solution vector.
     def __str__(self):
         return "Matrix:\n\n" + str(self.matrix)+ "\n\nSolution Vector:\n\n" + str(self.solution)

@@ -24,10 +24,12 @@ class Jacobi:
             xo = [i for i in x]
             for i in range(num_rows - 1):
                 pi = 0
+                debug = ""
                 for j in range(num_rows - 1):
                     if j != i:
-                        pi += matrix[i][j] * matrix[i][num_rows - 1]
-                x[i] = (xo[i] - pi)/matrix[i][i]
+                        pi += (matrix[i][j] * xo[j])
+                print ("x[i] = (" + str(matrix[i][num_rows - 1]) + " - " + str(pi) + ") / " + str(matrix[i][i]))
+                x[i] = (matrix[i][num_rows - 1] - pi)/matrix[i][i]  # flipping xo[i] - pi to + fixes first 2 entries
 
             print("\nTemp solution: " + str(x))
             print("Temp old solution: " + str(xo))

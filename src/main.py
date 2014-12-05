@@ -82,7 +82,7 @@ def main():
             if (sys.argv[SOLVE_METHOD] in DIRECT_METHODS):
                 solution = DIRECT_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix))
             else:
-                solution = ITERATIVE_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix), 100000, .0003)
+                solution = ITERATIVE_METHODS[sys.argv[SOLVE_METHOD]](copy.deepcopy(matrix), 25, .0003)
     if solution.has_unique_solution():
         print(solution)
     else:

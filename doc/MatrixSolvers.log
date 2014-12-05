@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.12.5)  5 DEC 2014 08:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.12.5)  5 DEC 2014 10:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -388,51 +388,51 @@ Package pdftex.def Info: input2.png used on input line 70.
 
 [3 <./input1.png> <./input2.png>]
 LaTeX Font Info:    Font shape `OT1/pbk/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/pbk/b/n' tried instead on input line 102.
+(Font)              Font shape `OT1/pbk/b/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/pbk/db/n' tried instead on input line 102.
+(Font)              Font shape `OT1/pbk/db/n' tried instead on input line 103.
 
 <gaussian.png, id=19, 856.19875pt x 205.76875pt>
 File: gaussian.png Graphic file (type png)
  <use gaussian.png>
-Package pdftex.def Info: gaussian.png used on input line 112.
+Package pdftex.def Info: gaussian.png used on input line 113.
 (pdftex.def)             Requested size: 428.09833pt x 102.88411pt.
  [4]
 <pivot.png, id=23, 765.86125pt x 201.75375pt>
 File: pivot.png Graphic file (type png)
  <use pivot.png>
-Package pdftex.def Info: pivot.png used on input line 133.
+Package pdftex.def Info: pivot.png used on input line 134.
 (pdftex.def)             Requested size: 382.92969pt x 100.87662pt.
 
 <badgaussian.png, id=24, 719.68875pt x 201.75375pt>
 File: badgaussian.png Graphic file (type png)
  <use badgaussian.png>
-Package pdftex.def Info: badgaussian.png used on input line 141.
+Package pdftex.def Info: badgaussian.png used on input line 142.
 (pdftex.def)             Requested size: 359.84349pt x 100.87662pt.
 
 [5 <./gaussian.png> <./pivot.png>]
 <jacobi.png, id=28, 767.86874pt x 226.8475pt>
 File: jacobi.png Graphic file (type png)
  <use jacobi.png>
-Package pdftex.def Info: jacobi.png used on input line 170.
+Package pdftex.def Info: jacobi.png used on input line 171.
 (pdftex.def)             Requested size: 383.93343pt x 113.42346pt.
  [6 <./badgaussian.png>] <gauss_seidel.png, id=32, 811.03pt x 218.8175pt>
 File: gauss_seidel.png Graphic file (type png)
 
 <use gauss_seidel.png>
-Package pdftex.def Info: gauss_seidel.png used on input line 190.
+Package pdftex.def Info: gauss_seidel.png used on input line 191.
 (pdftex.def)             Requested size: 405.514pt x 109.40848pt.
  [7 <./jacobi.png> <./gauss_seidel.png>]
 <sor.png, id=37, 764.8575pt x 222.8325pt>
 File: sor.png Graphic file (type png)
  <use sor.png>
-Package pdftex.def Info: sor.png used on input line 210.
+Package pdftex.def Info: sor.png used on input line 212.
 (pdftex.def)             Requested size: 382.42781pt x 111.41597pt.
 
 <slow_seidel.png, id=38, 795.97375pt x 227.85126pt>
 File: slow_seidel.png Graphic file (type png)
  <use slow_seidel.png>
-Package pdftex.def Info: slow_seidel.png used on input line 218.
+Package pdftex.def Info: slow_seidel.png used on input line 220.
 (pdftex.def)             Requested size: 397.9859pt x 113.92534pt.
 
 [8 <./sor.png> <./slow_seidel.png>] [9] (./MatrixSolvers.bbl
@@ -445,17 +445,17 @@ LaTeX Font Info:    Font shape `OT1/pbk/m/it' in size <10> not available
 Here is how much of TeX's memory you used:
  4640 strings out of 493108
  59478 string characters out of 6140725
- 134090 words of memory out of 5000000
+ 135090 words of memory out of 5000000
  7997 multiletter control sequences out of 15000+600000
  18840 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,8n,35p,245b,652s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,35p,245b,654s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr
 /share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1
 /urw/bookman/ubkd8a.pfb></usr/share/texmf-dist/fonts/type1/urw/bookman/ubkl8a.p
 fb></usr/share/texmf-dist/fonts/type1/urw/bookman/ubkli8a.pfb>
-Output written on MatrixSolvers.pdf (10 pages, 181800 bytes).
+Output written on MatrixSolvers.pdf (10 pages, 182212 bytes).
 PDF statistics:
  68 PDF objects out of 1000 (max. 8388607)
  40 compressed objects within 1 object stream

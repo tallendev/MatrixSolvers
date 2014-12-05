@@ -39,8 +39,8 @@ algorithms and their implementation.
 
 \section{General Implementation Information}
 These algorithms for solving matrix equations  were implemented in Python 3.4, due to some improvements 
-in Python's looping and printing methods over Python 2.5. It is likely that the
-program will not execute succesfully or efficiently in Python 2.5. The implementation
+in Python's looping and printing methods over Python 2. It is likely that the
+program will not execute succesfully or efficiently in Python 2. The implementation
 provides a single interface for all of the provided methods, and uses command line 
 arguments to accept the input. 
 
@@ -79,11 +79,11 @@ The matrix parsing algorithm is not advanced enough to detect most errors in use
 input. A usage message will be displayed in the event that an input file contains
 syntax errors. The matrix entry format is standard; outer brackets indicate the 
 a matrix, inner brackets indicate a row, and commas seperate elements 
-(values AND rows).  It was decided that this format is more flexible than entering
+(values AND rows). It was decided that this format is more flexible than entering
 matrices directly into source code before executing the program, even with the
-possibility of user error. The algorithms in the reference book specify $n x n$ 
-matrices. The program will only function correctly when given an $n x n + 1$ 
-matrix, where the additional vector is the $\bar{b}$ vector in $A\bar{x} = \bar{b}$.
+possibility of user error. The algorithms in the referenced textbook specify $n x n$ 
+matrices\cite{numerical}. The program will only function correctly when given an $n x n + 1$ 
+matrix, where the additional vector is the $\bar{b}$ vector in $A\bar{x} = \bar{b}$\cite{numerical}.
 This is because the algorithms expect the matrices to have single solutions,
 $rank(n)$.
 These implementations are also undefined in the event of inconsistency.
@@ -92,12 +92,13 @@ These implementations are also undefined in the event of inconsistency.
 
 Exact methods, such as Gaussian Elimination, give an exact solution. These 
 exact solutions can be computationally expensive, but attempt to give solutions
-without approximation. Some approximation is inherent due to computer roundoff
-error. This error can be exaggerated greatly; a value with roundoff error 
-will propogate the error throughout every calculation the value is involved in.
+without approximation\cite{numerical}. Some inconsistency is inherent in these 
+algorithms when executed by a computer due to computer roundoff
+error\cite{numerical}. This error can be exaggerated greatly; a value with roundoff error 
+will propogate the error throughout every calculation where the value appears\cite{numerical}.
 This can create exceedingly large error, but is a casualty of limited storage 
 for floating point values. Some exact methods attempt to avoid this roundoff 
-error.
+error\cite{numerical}.
 
 \subsection{Gaussian Elimination with Backwards Substitution}
 Gaussian Elimination is a standard method for solving matrix equations by-hand. If a 
@@ -116,22 +117,22 @@ are eliminated using elementary row operations.
 \end{figure}
 
 Figure \ref{gaussian} displays a usage of Gaussian Elimination. This method can be accessed by using ``gaussian'' as the solution method
-within the program.
+within the program. Example equations were pulled from the text\cite{numerical}.
 
 
 
 \subsection{Gaussian Elimination with Partial Pivoting}
 Gaussian Elimination with Partial Pivoting was created to handle the 
-computational roundoff error issue. The difference between Gaussian Elimination
+computational roundoff error issue\cite{numerical}. The difference between Gaussian Elimination
 with Backwards Substitution and this method is in the choice of pivot rows; 
 rather than use the first available non-zero entry in the appropriate column
- as the pivot row, we use the entry in the pivot column with the highest magnitude (i.e. highest absolute value). 
- This will produce a more accurate result with less roundoff error. 
+ as the pivot row, we use the entry in the pivot column with the highest magnitude (i.e. highest absolute value)\cite{numerical}. 
+ This will produce a more accurate result with less roundoff error\cite{numerical}. 
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=.5]{pivot.png}
-\caption{Gaussian Elimination with Partial Pivoting}
+\caption{Gaussian Elimination with Partial Pivoting. Example was pulled from the text\cite{numerical}.}
 \label{pivot}
 \end{center}
 \end{figure}
@@ -139,7 +140,7 @@ rather than use the first available non-zero entry in the appropriate column
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=.5]{badgaussian.png}
-\caption{Gaussian Elimination produces a less accurate result due to roundoff error.}
+\caption{Gaussian Elimination produces a less accurate result due to roundoff error. Example was pulled from the text\cite{numerical}.}
 \label{badgaussian}
 \end{center}
 \end{figure}
@@ -154,21 +155,21 @@ solution method within the program.
 \section{Iterative Methods}
 Iterative methods provide approximate solutions to matrix equations. For large
 matrices, these methods are far more computationally efficient than their
-exact counterparts. However, accuracy is lost without a sufficient number of 
+exact counterparts\cite{numerical}. However, accuracy is lost without a sufficient number of 
 iterations and a sufficiently lower tolerance. 
 
 \subsection{Jacobi's Method}
 Jacobi's method is one such approximate method. It requires a candidate solution
-to be provided as a guess. This algorithm assumes the guess to be $\bar{0}$ in 
+to be provided as a guess\cite{numerical}. This implementation assumes the guess to be $\bar{0}$ in 
 every case. Jacobi's method then uses the provided candidate to approach the 
-actual solution. After an iteration, if the maximum number of iterations is exceeded
+actual solution\cite{numerical}. After an iteration, if the maximum number of iterations is exceeded
 or the current solution's distance from the actual solution is within the tolerance 
-level, we use the current solution. Otherwise, the current solution is the new 
-candidate for the next iteration. 
+level, we use the current solution\cite{numerical}. Otherwise, the current solution is the new 
+candidate for the next iteration\cite{numerical}. 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=.5]{jacobi.png}
-\caption{Jacobi's Method}
+\caption{Jacobi's Method. Example was pulled from the text\cite{numerical}.}
 \label{jacobi}
 \end{center}
 \end{figure}
@@ -178,17 +179,17 @@ as the solution method within the program.
 
 
 \subsection{The Gauss-Seidel Method}
-The Gauss-Seidel method is an improvement on Jacobi's method. During Jacobi's method
-the candidate's values are used to calculate a new candidate. The values of the
-new candidate are created in order from $1...n$. For the calculation of the later
+The Gauss-Seidel method is an improvement on Jacobi's method\cite{numerical}. During Jacobi's method
+the candidate's values are used to calculate a new candidate\cite{numerical}. The values of the
+new candidate are created in order from $1...n$\cite{numerical}. For the calculation of the later
 values, using the already calculated values of the current candidate allows us 
-to converge on the true solution faster.
+to converge on the true solution faster\cite{numerical}.
 
  
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=.5]{gauss_seidel.png}
-\caption{The Gauss-Seidel Method}
+\caption{The Gauss-Seidel Method. Example matrix was pulled from the text\cite{numerical}.}
 \label{gauss_seidel}
 \end{center}
 \end{figure}
@@ -198,17 +199,18 @@ as the solution method within the program.
 
 \subsection{Successive Over-Relaxation Method}
 
-The SOR method is a modification of the Gauss-Seidel method. The SOR method is 
-an over-relaxtion method. This means that, by using some additional operations 
-involving some constant $1 < \omega < 2$, we will converge faster. With a 
+The SOR method is a modification of the Gauss-Seidel method\cite{numerical}. The SOR method is 
+an over-relaxtion method\cite{numerical}. This means that, by using some additional operations 
+involving some constant $1 < \omega < 2$, we will converge faster\cite{numerical}. With a 
 properly chosen $\omega$, convergence can be sped up greatly over the Gauss-Seidel
-method. However, choosing an appropriate $\omega$ depends greatly on the matrix
-itself. 
+method\cite{numerical}. However, choosing an appropriate $\omega$ depends greatly on the matrix
+itself and can be difficult\cite{numerical}. This implementation leaves the value of 
+$\omega$ up to the user.
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=.5]{sor.png}
-\caption{The SOR Method}
+\caption{The SOR Method. Example matrix pulled from the text\cite{numerical}.}
 \label{sor}
 \end{center}
 \end{figure}
@@ -216,13 +218,14 @@ itself.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=.5]{slow_seidel.png}
-\caption{The Gauss-Seidel Method performing slower than the SOR method.}
+\caption{The Gauss-Seidel Method performing slower than the SOR method. Example matrix
+pulled from the text\cite{numerical}.}
 \label{slow_seidel}
 \end{center}
 \end{figure}
 
-Figure \ref{sor} shows the usage of the SOR method. In comparison to %\figure{slow\_seidel},
-it is apparent how a well chosen $\omega$ can have significant impact on the 
+Figure \ref{sor} shows the usage of the SOR method. In comparison to \ref{slow_seidel},
+it is apparent how a well-chosen $\omega$ can have significant impact on the 
 speed of convergence. This method can be accessed by using ``sor''
 as the solution method within the program.
 

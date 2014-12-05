@@ -1,4 +1,4 @@
 MatrixSolvers
 =============
 
-An implementation of several matrix solving algorithms.
+An implementation of several matrix equation solving algorithms.
